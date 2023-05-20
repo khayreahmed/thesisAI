@@ -1,1 +1,0 @@
-OPENAI_API_KEY = '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'
