@@ -21,7 +21,6 @@ def send_click():
     st.session_state.response  = query_engine.query(st.session_state.prompt)
 
 index = None
-st.title("ThesisAI")
 
 st.markdown("""
     <style>
@@ -30,9 +29,11 @@ st.markdown("""
         color: #fff;
         background-color: #000;
         font-family: 'Josefin Sans', serif;
+        margin: 0;
+        padding: 0;
     }
     h1 {
-        color: #ff6f00;
+        color: #fff;
     }
     a {
         color: #2196f3;
@@ -45,14 +46,17 @@ st.markdown("""
         background-color: #000;
         color: white;
         text-align: center;
+        padding: 10px 0;
     }
     </style>
 """, unsafe_allow_html=True)
 
+st.title("ThesisAI")
 
 st.markdown(""" 
 <footer>
-    By Khayre Ali | <a href="https://github.com/khayreahmed" style="background-color: white; border-radius: 50%; display: inline-block; width: 30px; height: 30px; text-align: center;">
+    By Khayre Ali | 
+    <a href="https://github.com/khayreahmed" style="background-color: white; border-radius: 50%; display: inline-block; width: 30px; height: 30px; text-align: center;">
     <img src="https://github.com/favicon.ico" width="24" style="padding-top: 3px;">
 </a> |
     <a href="https://khayreali.substack.com/"><img src="https://substack.com/favicon.ico" width="24"></a> |
