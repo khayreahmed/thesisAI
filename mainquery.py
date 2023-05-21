@@ -44,7 +44,7 @@ if uploaded_file is not None:
     sidebar_placeholder.subheader(uploaded_file.name)
     sidebar_placeholder.write(documents[0].get_text()[:10000]+'...')
 
-    llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="text-davinci-004"))
+    llm_predictor = LLMPredictor(llm=OpenAI(temperature=0, model_name="text-davinci-003"))
 
     max_input_size = 4096
     num_output = 256
@@ -70,9 +70,14 @@ elif os.path.exists(index_file):
     sidebar_placeholder.subheader(doc_filename)
     sidebar_placeholder.write(documents[0].get_text()[:10000]+'...')
 
-if index != None:
-    st.text_input("Ask something: ", key='prompt')
-    st.button("Send", on_click=send_click)
-    if st.session_state.response:
+if index is not None:
+    with st.form(key='my_form'):
+        st.text_input("Ask something: ", key='prompt')
+        submit_button = st.form_submit_button(label='Send')
+        
+    if submit_button:
+        query_engine = index.as_query_engine()
+        st.session_state.response  = query_engine.query(st.session_state.prompt)
+
         st.subheader("Response: ")
         st.success(st.session_state.response, icon= "🤖")
