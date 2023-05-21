@@ -23,6 +23,44 @@ def send_click():
 index = None
 st.title("ThesisAI")
 
+st.markdown("""
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap');
+    body {
+        color: #fff;
+        background-color: #000;
+        font-family: 'Josefin Sans', serif;
+    }
+    h1 {
+        color: #ff6f00;
+    }
+    a {
+        color: #2196f3;
+    }
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #000;
+        color: white;
+        text-align: center;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
+st.markdown(""" 
+<footer>
+    By Khayre Ali | <a href="https://github.com/khayreahmed" style="background-color: white; border-radius: 50%; display: inline-block; width: 30px; height: 30px; text-align: center;">
+    <img src="https://github.com/favicon.ico" width="24" style="padding-top: 3px;">
+</a> |
+    <a href="https://khayreali.substack.com/"><img src="https://substack.com/favicon.ico" width="24"></a> |
+    <a href="https://www.linkedin.com/in/khayreali/"><img src="https://linkedin.com/favicon.ico" width="24"></a>
+</footer>
+""", unsafe_allow_html=True)
+
+
 sidebar_placeholder = st.sidebar.container()
 uploaded_file = st.file_uploader("Choose a file")
 
